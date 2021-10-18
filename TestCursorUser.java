@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
-public class TestCursor
+public class TestCursorUser
 {
 	private static InterfacePoint getPoint()
 	{

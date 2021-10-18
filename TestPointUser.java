@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
-public class TestPoint
+public class TestPointUser
 {
 	// Pour pouvoir connecter cette classe de tests à n'importe quelle
 	// implémentation.

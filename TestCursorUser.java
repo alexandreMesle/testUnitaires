@@ -4,35 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestCursorUser
 {
-	private static InterfacePoint getPoint()
-	{
-		return new ImplementPoint();
-	}
-
-	public static InterfacePoint getPoint(int abs, int ord)
-	{
-		InterfacePoint p = getPoint();
-		p.setAbs(abs);
-		p.setOrd(ord);
-		return p;
-	}
-
-	// Idem, remplacez l'instantiacion par celle de votre implémentation de la
-	// classe cursor.
-	private InterfaceCursor getCursor()
-	{
-		return new ImplementCursor();
-	}
-
-	private InterfaceCursor getCursor(InterfacePoint pos, InterfacePoint dir)
-	{
-		InterfaceCursor i = getCursor();
-		i.setPosition(pos);
-		i.setDirection(dir);
-		return i;
-	}
-
-	private boolean equals(InterfaceCursor c, InterfaceCursor d)
+	private boolean equals(Cursor c, Cursor d)
 	{
 		return c.getPosition().equals(d.getPosition())
 				&& c.getDirection().equals(d.getDirection());
@@ -41,79 +13,79 @@ public class TestCursorUser
 	@Test
 	public void testCursorInterfacePointInterfacePoint()
 	{
-		InterfaceCursor c = getCursor(getPoint(1, 2), getPoint(5, 4));
-		assertTrue(equals(c, getCursor(getPoint(1, 2), getPoint(5, 4))));
+		Cursor c = new Cursor(new Point(1, 2), new Point(5, 4));
+		assertTrue(equals(c, new Cursor(new Point(1, 2), new Point(5, 4))));
 	}
 
 	@Test
 	public void testGetPosition()
 	{
-		InterfaceCursor c = getCursor();
-		c.setPosition(getPoint(1, 5));
-		assertTrue(c.getPosition().equals(getPoint(1, 5)));
-		c.setDirection(getPoint(3, 4));
-		assertTrue(c.getPosition().equals(getPoint(1, 5)));
-		c.setPosition(getPoint(1, 5));
-		assertTrue(c.getPosition().equals(getPoint(1, 5)));
+		Cursor c = new Cursor();
+		c.setPosition(new Point(1, 5));
+		assertTrue(c.getPosition().equals(new Point(1, 5)));
+		c.setDirection(new Point(3, 4));
+		assertTrue(c.getPosition().equals(new Point(1, 5)));
+		c.setPosition(new Point(1, 5));
+		assertTrue(c.getPosition().equals(new Point(1, 5)));
 	}
 
 	@Test
 	public void testGetDirection()
 	{
-		InterfaceCursor c = getCursor();
-		c.setDirection(getPoint(1, 5));
-		assertTrue(c.getDirection().equals(getPoint(1, 5)));
-		c.setPosition(getPoint(3, 4));
-		assertTrue(c.getDirection().equals(getPoint(1, 5)));
-		c.setDirection(getPoint(1, 5));
-		assertTrue(c.getDirection().equals(getPoint(1, 5)));
+		Cursor c = new Cursor();
+		c.setDirection(new Point(1, 5));
+		assertTrue(c.getDirection().equals(new Point(1, 5)));
+		c.setPosition(new Point(3, 4));
+		assertTrue(c.getDirection().equals(new Point(1, 5)));
+		c.setDirection(new Point(1, 5));
+		assertTrue(c.getDirection().equals(new Point(1, 5)));
 	}
 
 	@Test
 	public void testReset()
 	{
-		InterfaceCursor c = getCursor();
+		Cursor c = new Cursor();
 		c.stepStraigth();
 		c.turnLeft();
 		c.reset();
-		assertTrue(equals(c, getCursor(getPoint(0, 0), getPoint(1, 0))));
+		assertTrue(equals(c, new Cursor(new Point(0, 0), new Point(1, 0))));
 	}
 
 	@Test
 	public void testStepStraigth()
 	{
-		InterfaceCursor c = getCursor(getPoint(0, 0), getPoint(1, 1));
+		Cursor c = new Cursor(new Point(0, 0), new Point(1, 1));
 		c.stepStraigth();
 		c.stepStraigth();
-		assertTrue(c.getPosition().equals(getPoint(2, 2)));
+		assertTrue(c.getPosition().equals(new Point(2, 2)));
 	}
 
 	@Test
 	public void testTurnLeft()
 	{
-		InterfaceCursor c = getCursor(getPoint(0, 0), getPoint(1, 0));
+		Cursor c = new Cursor(new Point(0, 0), new Point(1, 0));
 		c.turnLeft();
-		assertTrue(c.getDirection().equals(getPoint(0, 1)));
+		assertTrue(c.getDirection().equals(new Point(0, 1)));
 		c.turnLeft();
-		assertTrue(c.getDirection().equals(getPoint(-1, 0)));
+		assertTrue(c.getDirection().equals(new Point(-1, 0)));
 		c.turnLeft();
-		assertTrue(c.getDirection().equals(getPoint(0, -1)));
+		assertTrue(c.getDirection().equals(new Point(0, -1)));
 		c.turnLeft();
-		assertTrue(c.getDirection().equals(getPoint(1, 0)));
+		assertTrue(c.getDirection().equals(new Point(1, 0)));
 	}
 
 	@Test
 	public void testTurnRight()
 	{
-		InterfaceCursor c = getCursor(getPoint(0, 0), getPoint(1, 0));
+		Cursor c = new Cursor(new Point(0, 0), new Point(1, 0));
 		c.turnRight();
-		assertTrue(c.getDirection().equals(getPoint(0, -1)));
+		assertTrue(c.getDirection().equals(new Point(0, -1)));
 		c.turnRight();
-		assertTrue(c.getDirection().equals(getPoint(-1, 0)));
+		assertTrue(c.getDirection().equals(new Point(-1, 0)));
 		c.turnRight();
-		assertTrue(c.getDirection().equals(getPoint(0, 1)));
+		assertTrue(c.getDirection().equals(new Point(0, 1)));
 		c.turnRight();
-		assertTrue(c.getDirection().equals(getPoint(1, 0)));
+		assertTrue(c.getDirection().equals(new Point(1, 0)));
 	}
 
 }

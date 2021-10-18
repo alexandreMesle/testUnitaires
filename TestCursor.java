@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
-public class TestCursorUser
+public class TestCursor
 {
 	private boolean equals(Cursor c, Cursor d)
 	{

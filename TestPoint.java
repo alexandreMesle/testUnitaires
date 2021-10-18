@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
-public class TestPointUser
+public class TestPoint
 {
 	@Test
 	public void testPointIntInt()

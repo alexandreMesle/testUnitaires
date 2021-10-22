@@ -2,6 +2,11 @@ public class Cursor
 {
 	private Point position, direction;
 
+	public Cursor()
+	{
+		reset();
+	}
+
 	public Cursor(Point position, Point direction)
 	{
 		setPosition(position);
@@ -16,11 +21,6 @@ public class Cursor
 	public void setPosition(Point position)
 	{
 		this.position = position;
-	}
-
-	public Cursor()
-	{
-		reset();
 	}
 
 	public Point getPosition()

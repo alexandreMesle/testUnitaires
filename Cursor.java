@@ -46,13 +46,11 @@ public class Cursor
 
 	public void turnRight()
 	{
-		setDirection(new Point(getDirection().getOrd(),
-				-getDirection().getAbs()));
+		setDirection(new Point(getDirection().getOrd(), - getDirection().getAbs()));
 	}
 
 	public void turnLeft()
 	{
-		setDirection(new Point(-getDirection().getOrd(),
-				getDirection().getAbs()));
+		setDirection(new Point(-getDirection().getOrd(), getDirection().getAbs()));
 	}
 }
